@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+
+  hub:
+    image: selenium/hub:3.9.1
+    ports:
+      - 4444:4444
+
+  chrome:
+    image: selenium/node-chrome:3.9.1
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
